@@ -1,19 +1,26 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
+from django.contrib.auth.models import *
 
 from .models import *
 
 
-class BelongSerializer(serializers.ModelSerializer):
+class RegionGroupSerializer(serializers.ModelSerializer):
 
   class Meta:
-    model = Belong
+    model = RegionGroup
     fields = '__all__'
 
 
-class PositionSerializer(serializers.ModelSerializer):
+class LandGroupSerializer(serializers.ModelSerializer):
+
   class Meta:
-    model = Position
+    model = LandGroup
+    fields = '__all__'
+
+
+class GenerationGroupSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = GenerationGroup
     fields = '__all__'
 
 
@@ -23,9 +30,15 @@ class SpeakerSerializer(serializers.ModelSerializer):
     fields = '__all__'
 
 
+class GroupSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Group
+    fields = '__all__'
+
+
 class UserSerializer(serializers.ModelSerializer):
 
-  speaker =SpeakerSerializer()
+  speaker = SpeakerSerializer()
   class Meta:
     model = User
     fields = '__all__'
