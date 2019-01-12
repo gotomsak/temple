@@ -6,12 +6,6 @@ from django.contrib.auth.models import User
 # Register your models here.
 
 
-# class GenerationGroupInline(admin.StackedInline):
-#   model = GenerationGroup
-#   can_delete = False
-#   varbose_name_plural = 'generation_group'
-
-
 class SpeakerInline(admin.StackedInline):
   model = Speaker
   can_delete = False
@@ -20,11 +14,6 @@ class SpeakerInline(admin.StackedInline):
 
 class UserAdmin(BaseUserAdmin):
   inlines = (SpeakerInline,)
-
-
-# class AccessTokenAdmin(admin.ModelAdmin):
-#   fields = ['user', 'token', 'access_datetime']
-
 
 
 
